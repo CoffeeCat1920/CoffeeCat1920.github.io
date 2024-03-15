@@ -1,0 +1,52 @@
+/* Define global CSS variables */
+:root {
+    --bg: #ebdbb2;
+    --text: #282828;
+    --link: #b57614;
+    --head: #076678;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #282828;
+        --text: #fbf1c7;
+        --link: #fabd2f;
+        --head: #83a598;
+    }
+}
+
+/* global */
+html {
+    font-family: monospace;
+}
+
+/* body */
+body {
+    color: var(--text);
+    background-color: var(--bg);
+    font-size: 18px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+h1 {
+    color: var(--head);
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+    padding-left: 20px;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+a {
+    color: var(--link);
+}
+
+a:hover {
+    color: var(--head);
+    font-size: 20px;
+}
