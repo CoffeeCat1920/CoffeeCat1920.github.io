@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-03-16 Sat 05:15 -->
+<!-- 2024-03-16 Sat 05:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>h0ney Blogs</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<link rel="stylesheet" href="https://raw.githubusercontent.com/H0neyCatCoffeeGo/H0neyCatCoffeeGo.github.io/main/style.css">
 </head>
 <body>
 <div id="content" class="content">
@@ -202,9 +203,9 @@
 <li><a href="./journalList.html">Journals</a></li>
 <li><a href="./techList.html">Tech Blogs</a></li>
 </ul>
-<div id="outline-container-orgb1b9c4c" class="outline-2">
-<h2 id="orgb1b9c4c">About Me</h2>
-<div class="outline-text-2" id="text-orgb1b9c4c">
+<div id="outline-container-org5b900e6" class="outline-2">
+<h2 id="org5b900e6">About Me</h2>
+<div class="outline-text-2" id="text-org5b900e6">
 <p>
 I am a 18 year old college who was unable to get into a good universty because of my laziness I developed during COVID. Now I am trying to get rid of this laziness. This blog is made to document my journey to help others and my self going through the same.
 </p>
@@ -213,7 +214,7 @@ I am a 18 year old college who was unable to get into a good universty because o
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: h0ney</p>
-<p class="date">Created: 2024-03-16 Sat 05:15</p>
+<p class="date">Created: 2024-03-16 Sat 05:32</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
