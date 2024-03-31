@@ -52,7 +52,18 @@ h2 {
 #fire {
     display: block;
     margin: 0 auto;
+    max-width: 50%;
+    height: 60%;
 }
+
+#links {
+    padding-top: 30px;
+    padding-left: 130px;
+    padding-right: 130px;
+    display: flex;
+    justify-content: space-between;
+}
+
 
 a {
     color: var(--link);
