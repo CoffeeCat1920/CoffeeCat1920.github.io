@@ -40,6 +40,18 @@ h1 {
 
 h2 {
     font-weight: bold;
+    text-align: center;
+}
+
+#Intro {
+    padding-left: 250px;
+    padding-right: 250px;
+    text-align: center;
+}
+
+#fire {
+    display: block;
+    margin: 0 auto;
 }
 
 a {
