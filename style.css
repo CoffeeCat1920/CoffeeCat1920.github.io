@@ -1,75 +1,62 @@
 /* Define global CSS variables */
 :root {
-    --bg: #ebdbb2;
-    --text: #282828;
-    --link: #b57614;
-    --head: #076678;
+ --bg: #ebdbb2;
+ --text: #282828;
+ --link: #b57614;
+ --head: #076678;
 }
 
 /* Dark theme */
 @media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #282828;
-        --text: #fbf1c7;
-        --link: #fabd2f;
-        --head: #83a598;
-    }
+ :root {
+  --bg: #191724;
+  --text:  #fffaf3;
+  --link: #ea9a97;
+  --head: #c4a7e7;
+ }
 }
 
 /* global */
 html {
-    font-family: monospace;
-}
-
-/* body */
-body {
-    color: var(--text);
-    background-color: var(--bg);
-    font-size: 18px;
-    padding-left: 50px;
-    padding-right: 50px;
+  font-family: monospace;
+  background-color: var(--bg);
 }
 
 h1 {
-    color: var(--head);
-    font-weight: bold;
-    font-size: 50px;
-    text-align: center;
-    padding-left: 20px;
+  font-size: 50px;
+  text-align: center;
+  color: var(--head);
 }
+
 
 h2 {
-    font-weight: bold;
-    text-align: center;
+  font-size: 25px;
+  text-align: center;
+  color: var(--text);
 }
-
-#Intro {
-    padding-left: 250px;
-    padding-right: 250px;
-    text-align: center;
-}
-
-#fire {
-    display: block;
-    margin: 0 auto;
-    max-width: 50%;
-    height: 50%;
-}
-
-#links {
-    padding-top: 30px;
-    padding-left: 130px;
-    padding-right: 130px;
-    display: flex;
-    justify-content: space-between;
-}
-
 
 a {
-    color: var(--link);
+  color: var(--link);
 }
 
-a:hover {
-    color: var(--head);
-    font-size: 20px;
+ul {
+  margin: 0;
+  padding: 0;
 }
+
+#navbox {
+  font-size: 18px; 
+  border: solid;
+  border-width: 2px;
+  border-color: var(--link);
+  text-align: left;
+}
+  
+#intro {
+  font-size: 18px;
+  text-align: left;
+  padding-left: 100px;
+  padding-right: 200px;
+  color: var(--text);
+}
+
