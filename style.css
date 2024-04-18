@@ -9,10 +9,10 @@
 /* Dark theme */
 @media (prefers-color-scheme: dark) {
  :root {
-  --bg: #191724;
-  --text:  #fffaf3;
-  --link: #ea9a97;
-  --head: #c4a7e7;
+  --bg: #242424;
+  --text:  #f9f5dd;
+  --link: #b2e64c;
+  --head: #aa7dfc;
  }
 }
 
@@ -39,24 +39,35 @@ a {
   color: var(--link);
 }
 
+a:hover {
+  color: var(--head);
+}
+
 ul {
-  margin: 0;
-  padding: 0;
+  list-style-type: circle;
+  color: var(--link)
+}
+
+#temp {
+  width: 70%;
+  float: right;
 }
 
 #navbox {
+  width: 26%;
   font-size: 18px; 
+  margin: 10px;
+  padding: 10px;
   border: solid;
   border-width: 2px;
   border-color: var(--link);
   text-align: left;
+  float: left;
 }
   
 #intro {
   font-size: 18px;
-  text-align: left;
-  padding-left: 100px;
-  padding-right: 200px;
+  text-align: center;
   color: var(--text);
 }
 
