@@ -23,20 +23,22 @@ html {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 80px;
+  font-weight: normal;
   text-align: center;
-  color: var(--head);
+  color: var(--text);
 }
 
 
 h2 {
-  font-size: 25px;
+  font-size: 30px;
   text-align: center;
   color: var(--text);
 }
 
 a {
   color: var(--link);
+  text-decoration: none;
 }
 
 a:hover {
@@ -48,26 +50,29 @@ ul {
   color: var(--link)
 }
 
-#temp {
-  width: 70%;
-  float: right;
+#lahore {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 20%;
 }
 
 #navbox {
-  width: 26%;
-  font-size: 18px; 
-  margin: 10px;
-  padding: 10px;
-  border: solid;
-  border-width: 2px;
-  border-color: var(--link);
-  text-align: left;
-  float: left;
+  font-size: 25;
+  text-align: center;
+  margin-top: 30px;
+}
+
+#navbox a {
+  margin-right: 12px;
 }
   
 #intro {
   font-size: 18px;
   text-align: center;
+  margin-left: 500px;
+  margin-right: 500px;
+  margin-top: 20px;
   color: var(--text);
 }
 
