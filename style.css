@@ -1,41 +1,46 @@
-/* Define global CSS variables */
 :root {
- --bg: #ebdbb2;
- --text: #282828;
- --link: #b57614;
- --head: #076678;
- --accent: #b57614;  
+  --bg: #f3f0e9;        /* Warmer, slightly muted off-white for better harmony */
+  --text: #2c2c2c;      /* Deep neutral gray for good contrast */
+  --link: #d9822b;      /* Warmer amber, matching dark theme’s orange tone */
+  --head: #2896a5;      /* Muted cyan, more in line with dark theme’s head color */
+  --accent: #2896a5;    /* Using same accent for consistency */
+  --card-bg: #f6f3ee; 
 }
 
 /* Dark theme */
 @media (prefers-color-scheme: dark) {
- :root {
-  --bg: #242424;
-  --text:  #f9f5dd;
-  --link: #b2e64c;
-  --head: #aa7dfc;
-  --accent: #b57614;  
- }
+  :root {
+    --bg: #2d2a28;       /* Slightly deeper for true contrast */
+    --text: #ececec;     /* Softer off-white, easier on the eyes */
+    --link: #faa41a;     /* Warm, rich amber */
+    --head: #48b9c7;     /* Cool cyan blue */
+    --accent: #48b9c7;   /* Matching head for simplicity */
+    --card-bg: #3a3633;
+  }
 }
 
 /* global */
 html {
-  font-family: monospace;
+  font-family: 'Roboto Mono', monospace;
   background-color: var(--bg);
 }
 
 h1 {
+  font-family: 'DM Serif Text'; 
   font-size: 80px;
-  font-weight: normal;
+  font-weight: bold;
   text-align: center;
-  color: var(--text);
+  color: var(--head);
 }
-
 
 h2 {
   font-size: 30px;
   text-align: center;
   color: var(--text);
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
 }
 
 a {
@@ -52,20 +57,18 @@ ul {
   color: var(--link)
 }
 
-
 .card-container {
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: center; 
-  gap: 20px; 
-  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 3 cards per row */
+  gap: 20px; /* spacing between cards */
+  padding: 10px;
+  justify-items: center; /* center cards horizontally */
 }
 
-/* Individual Recipe Cards */
 .card {
   width: 150px; /* Fixed width */
   padding: 15px;
-  background: var(--accent);
+  background: var(--card-bg);
   color: var(--text);
   text-align: left;
   transition: transform 0.3s ease-in-out;
@@ -77,6 +80,8 @@ ul {
 
 /* Recipe Name Styling */
 .card-name {
+  font-family: 'Roboto Mono';
+  display: flex; 
   font-size: 20px;
   margin-bottom: 10px;
 }
@@ -101,6 +106,7 @@ ul {
   font-size: 25;
   text-align: center;
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 #navbox a {
@@ -116,3 +122,11 @@ ul {
   color: var(--text);
 }
 
+#subtitle {
+  font-family: 'Roboto';
+  color: var(--text) 
+  font-size: 0.9rem; /* Makes it smaller */
+  text-align: center;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
