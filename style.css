@@ -1,10 +1,14 @@
 :root {
   --bg: #f3f0e9;        /* Warmer, slightly muted off-white for better harmony */
   --text: #2c2c2c;      /* Deep neutral gray for good contrast */
-  --link: #d9822b;      /* Warmer amber, matching dark theme’s orange tone */
-  --head: #2896a5;      /* Muted cyan, more in line with dark theme’s head color */
+  --muted: #6f6a60;     /* Secondary text / subtitles */
+  --link: #d9822b;      /* Warmer amber, matching dark theme's orange tone */
+  --head: #2896a5;      /* Muted cyan, more in line with dark theme's head color */
   --accent: #2896a5;    /* Using same accent for consistency */
-  --card-bg: #f6f3ee; 
+  --card-bg: #faf7f1;
+  --card-border: rgba(40, 150, 165, 0.18);
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.18);
 }
 
 /* Dark theme */
@@ -12,40 +16,64 @@
   :root {
     --bg: #2d2a28;       /* Slightly deeper for true contrast */
     --text: #ececec;     /* Softer off-white, easier on the eyes */
+    --muted: #b0aaa1;
     --link: #faa41a;     /* Warm, rich amber */
     --head: #48b9c7;     /* Cool cyan blue */
     --accent: #48b9c7;   /* Matching head for simplicity */
-    --card-bg: #3a3633;
+    --card-bg: #383430;
+    --card-border: rgba(72, 185, 199, 0.25);
+    --shadow: rgba(0, 0, 0, 0.45);
+    --shadow-hover: rgba(0, 0, 0, 0.6);
   }
 }
 
 /* global */
+* {
+  box-sizing: border-box;
+}
+
 html {
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   background-color: var(--bg);
-}
-
-h1 {
-  font-family: 'DM Serif Text'; 
-  font-size: 80px;
-  font-weight: bold;
-  text-align: center;
-  color: var(--head);
-}
-
-h2 {
-  font-size: 30px;
-  text-align: center;
   color: var(--text);
+  transition: background-color 0.3s ease;
 }
 
 body {
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
+  margin: 0;
+  padding: 2.5rem 1rem 3rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-family: "DM Serif Text", serif;
+  font-size: clamp(44px, 9vw, 80px);
+  font-weight: bold;
+  line-height: 1.1;
+  text-align: center;
+  color: var(--head);
+  margin: 0.25rem 0 0.5rem;
+}
+
+h2 {
+  font-size: clamp(24px, 4vw, 30px);
+  text-align: center;
+  color: var(--text);
+  margin: 1.5rem 0 0.5rem;
+}
+
+h3 {
+  color: var(--head);
 }
 
 a {
   color: var(--link);
   text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 a:hover {
@@ -54,79 +82,118 @@ a:hover {
 
 ul {
   list-style-type: circle;
-  color: var(--link)
+  color: var(--link);
 }
 
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 3 cards per row */
-  gap: 20px; /* spacing between cards */
-  padding: 10px;
-  justify-items: center; /* center cards horizontally */
-}
-
-.card {
-  width: 150px; /* Fixed width */
-  padding: 15px;
-  background: var(--card-bg);
-  color: var(--text);
-  text-align: left;
-  transition: transform 0.3s ease-in-out;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-/* Recipe Name Styling */
-.card-name {
-  font-family: 'Roboto Mono';
-  display: flex; 
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.back-button {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.card-link {
-  font-size: 16px;
-}
-
-#lahore {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  width: 20%;
-}
-
+/* navigation */
 #navbox {
-  font-size: 25;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1rem;
+  margin: 1.5rem 0 2rem;
 }
 
 #navbox a {
-  margin-right: 12px;
+  font-size: 1.05rem;
+  padding: 0.45rem 1.1rem;
+  border: 1px solid var(--link);
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
-  
-#intro {
-  font-size: 18px;
-  text-align: center;
-  margin-left: 500px;
-  margin-right: 500px;
-  margin-top: 20px;
-  color: var(--text);
+
+#navbox a:hover {
+  background-color: var(--link);
+  border-color: var(--link);
+  color: var(--bg);
+}
+
+/* hero image */
+#lahore {
+  display: block;
+  margin: 1.5rem auto 1rem;
+  width: 20%;
+  min-width: 200px;
+  max-width: 320px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px var(--shadow);
 }
 
 #subtitle {
-  font-family: 'Roboto';
-  color: var(--text) 
-  font-size: 0.9rem; /* Makes it smaller */
+  font-family: "Roboto Condensed", sans-serif;
+  color: var(--muted);
+  font-size: 0.9rem;
   text-align: center;
   font-style: italic;
-  margin-top: 0.5rem;
+  margin: 0.5rem 0 2.5rem;
+}
+
+/* intro */
+#intro {
+  max-width: 58ch;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+/* back links */
+#links {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+
+#links a,
+.back-button {
+  font-size: 1.05rem;
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* portfolio cards */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.25rem;
+  padding: 1.5rem 0 2rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.card {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.1rem;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px var(--shadow-hover);
+  border-color: var(--head);
+}
+
+.card-name {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--text);
+}
+
+.card-link {
+  font-size: 0.95rem;
 }
