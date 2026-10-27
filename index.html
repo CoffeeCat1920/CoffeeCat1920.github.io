@@ -4,49 +4,231 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Wahab Ahmad — CS student, Neovim user, tiling window manager enthusiast.">
-    <title>Wahab Ahmad</title>
+    <title>~ · Wahab Ahmad</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300..700;1,300..700&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
   </head>
 
   <body>
-    <header>
-      <h1>Wahab Ahmad</h1>
+    <header class="waybar">
+      <div class="waybar-left">
+        <nav class="workspaces" aria-label="Workspaces">
+          <a class="workspace-btn active" href="./index.html">[1: home]</a>
+          <a class="workspace-btn" href="./portfolio.html">[2: projects]</a>
+          <a class="workspace-btn" href="./rice.html">[3: rice]</a>
+          <a class="workspace-btn" href="./blog.html">[4: blog]</a>
+        </nav>
+      </div>
 
-      <nav id="navbox">
-        <a href="https://drive.google.com/file/d/1t3Wa4kqP3B7J72hIrzhz8g_cpgX4sMfG/view?usp=sharing">Resume</a>
-        <a href="./portfolio.html">Portfolio</a>
-        <a href="./IDK.html">IDK_what_to_put_here</a>
-      </nav>
+      <div class="waybar-center">
+        <div class="window-title">
+          <span class="prompt-user">wahab</span><span class="prompt-at">@</span><span class="prompt-host">arch</span>:<span class="prompt-path">~</span>
+        </div>
+      </div>
+
+      <div class="waybar-right">
+        <a class="status-pill accent-orange" href="https://drive.google.com/file/d/1t3Wa4kqP3B7J72hIrzhz8g_cpgX4sMfG/view?usp=sharing" target="_blank" rel="noopener">
+          <span>📄</span> resume
+        </a>
+        <a class="status-pill accent-aqua" href="https://github.com/CoffeeCat1920" target="_blank" rel="noopener">
+          <span>🐙</span> github
+        </a>
+        <div class="status-pill accent-green">
+          <span>⚡</span> sway/wayland
+        </div>
+      </div>
     </header>
 
-    <main>
-      <img
-        src="https://imagedelivery.net/LBWXYQ-XnKSYxbZ-NuYGqQ/69a80b95-3395-484e-0bf9-892bef271700/banner"
-        alt="A banner photograph of Lahore"
-        id="lahore">
-      <p id="subtitle">* When you are regretting, this is who you are regretting</p>
+    <main class="container">
+      <div class="site-header">
+        <h1 class="site-title">Wahab Ahmad</h1>
+        <p class="site-subtitle">Computer Science Student &bull; Neovim Enthusiast &bull; Linux Ricer</p>
+      </div>
 
-      <section id="intro">
-        <h2>Ello Guyes</h2>
-        <p>
-          I am a Computer Science student, blazingly fast Neovim user. Arch is my luv and life.
-          I spend a lot of time customizing my Linux rice and use a tiling window manager.
-        </p>
+      <section class="tile-window">
+        <div class="tile-header">
+          <div class="tile-title">
+            <span>🖼️</span> lahore-view.jpg &mdash; sxiv
+          </div>
+          <div class="tile-controls">
+            <span>[—]</span>
+            <span>[□]</span>
+            <span>[×]</span>
+          </div>
+        </div>
+        <div class="tile-body" style="padding: 0;">
+          <div class="banner-wrapper" style="margin-bottom: 0; border: none;">
+            <img
+              src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Lahore_Fort_view_from_Baradari.jpg/960px-Lahore_Fort_view_from_Baradari.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+              alt="A panoramic photograph of Lahore"
+              class="banner-img"
+              id="lahore">
+            <div class="banner-caption">
+              * Lahore, Pakistan
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tile-window">
+        <div class="tile-header">
+          <div class="tile-title">
+            <span>💻</span> terminal &mdash; zsh
+          </div>
+          <div class="tile-controls">
+            <span>[—]</span>
+            <span>[□]</span>
+            <span>[×]</span>
+          </div>
+        </div>
+        <div class="tile-body">
+          <div class="prompt-line">
+            <span class="p-user">wahab@arch</span><span class="p-symbol">:</span><span class="prompt-path">~</span><span class="p-symbol">$</span> <span class="p-cmd">neofetch</span>
+          </div>
+
+          <div class="neofetch-grid">
+            <div class="neofetch-art">
+                   -`                    
+                  .o+`                   
+                 `ooo/                   
+                `+oooo:                  
+               `+oooooo:                 
+               -+oooooo+:                
+             `/:-:++oooo+:               
+            `/++++/+++++++:              
+           `/++++++++++++++:             
+          `/+++ooooooooooooo/`           
+         ./ooosssso++osssssso+`          
+        .oossssso-````/ossssss+`         
+       -osssssso.      :ssssssso.        
+      :osssssss/        osssso+++.       
+     /ossssssss/        +ssssooo/-       
+   `/ossssso+/:-        -:/+osssso+-     
+  `+sso+:-`                 `.-/+oso:    
+ `++:.                           `-/+/   
+ .`                                 `/   
+            </div>
+
+            <div class="neofetch-info">
+              <div class="info-row">
+                <span class="info-label">wahab@arch</span>
+              </div>
+              <div class="info-row" style="color: var(--fg4); margin-bottom: 0.6rem;">
+                --------------------
+              </div>
+              <div class="info-row">
+                <span class="info-label">OS:</span>
+                <span class="info-val">Arch Linux x86_64</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Kernel:</span>
+                <span class="info-val">Linux 6.x-zen</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">WM:</span>
+                <span class="info-val">Sway (Wayland)</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Terminal:</span>
+                <span class="info-val">Alacritty / Foot</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Editor:</span>
+                <span class="info-val">Neovim (Lua config)</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Theme:</span>
+                <span class="info-val">Gruvbox Dark Hard</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Status:</span>
+                <span class="info-val">CS Student &bull; Building & ricing</span>
+              </div>
+
+              <div class="color-blocks">
+                <div class="color-block" style="background-color: var(--bg0-hard);"></div>
+                <div class="color-block" style="background-color: var(--red);"></div>
+                <div class="color-block" style="background-color: var(--green);"></div>
+                <div class="color-block" style="background-color: var(--yellow);"></div>
+                <div class="color-block" style="background-color: var(--blue);"></div>
+                <div class="color-block" style="background-color: var(--purple);"></div>
+                <div class="color-block" style="background-color: var(--aqua);"></div>
+                <div class="color-block" style="background-color: var(--fg);"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="prompt-line" style="margin-top: 1.5rem;">
+            <span class="p-user">wahab@arch</span><span class="p-symbol">:</span><span class="prompt-path">~</span><span class="p-symbol">$</span> <span class="p-cmd">cat bio.txt</span>
+          </div>
+          <div style="color: var(--fg2); line-height: 1.7; font-size: 0.92rem;">
+            <p style="margin-bottom: 0.75rem;">
+              Hello guys! I am a Computer Science student and a blazingly fast Neovim user. 
+              Arch Linux is my love and life. I spend an irresponsible amount of time customizing 
+              my Linux rice, configuring tiling window managers, and crafting snappy developer workflows.
+            </p>
+            <p>
+              I hate buzzwords and webdev. 
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tile-window">
+        <div class="tile-header">
+          <div class="tile-title">
+            <span>📁</span> ~/navigation &mdash; ranger
+          </div>
+          <div class="tile-controls">
+            <span>[—]</span>
+            <span>[□]</span>
+            <span>[×]</span>
+          </div>
+        </div>
+        <div class="tile-body">
+          <div class="tiles-grid">
+            <div class="project-card">
+              <div>
+                <h3>[2] Portfolio</h3>
+                <p>Browse through my software projects, tools, and repositories.</p>
+              </div>
+              <div class="project-links">
+                <a href="./portfolio.html">cd ~/portfolio &rarr;</a>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div>
+                <h3>[3] Rice Showcase</h3>
+                <p>Deep-dive into my Sway WM setup, dotfiles, keybinds, and tools.</p>
+              </div>
+              <div class="project-links">
+                <a href="./rice.html">cd ~/rice &rarr;</a>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div>
+                <h3>[4] Blog & Notes</h3>
+                <p>Clean, lightweight thoughts on Linux, Neovim, and tooling.</p>
+              </div>
+              <div class="project-links">
+                <a href="./blog.html">cd ~/blog &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer>
-      <a href="https://github.com/CoffeeCat1920">github.com/CoffeeCat1920</a>
+    <footer class="site-footer">
+      <p>
+        Wahab Ahmad &bull; Hosted on GitHub Pages &bull;
+        <a href="https://github.com/CoffeeCat1920" target="_blank" rel="noopener">github.com/CoffeeCat1920</a>
+      </p>
     </footer>
   </body>
 </html>

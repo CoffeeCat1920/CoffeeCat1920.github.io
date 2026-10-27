@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wahab Ahmad's Linux Rice, Sway Wayland desktop, Neovim config, and dotfiles.">
+    <title>~/rice · Wahab Ahmad</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300..700;1,300..700&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+    <header class="waybar">
+      <div class="waybar-left">
+        <nav class="workspaces" aria-label="Workspaces">
+          <a class="workspace-btn" href="./index.html">[1: home]</a>
+          <a class="workspace-btn" href="./portfolio.html">[2: projects]</a>
+          <a class="workspace-btn active" href="./rice.html">[3: rice]</a>
+          <a class="workspace-btn" href="./blog.html">[4: blog]</a>
+        </nav>
+      </div>
+
+      <div class="waybar-center">
+        <div class="window-title">
+          <span class="prompt-user">wahab</span><span class="prompt-at">@</span><span class="prompt-host">arch</span>:<span class="prompt-path">~/dotfiles</span>
+        </div>
+      </div>
+
+      <div class="waybar-right">
+        <a class="status-pill accent-orange" href="https://drive.google.com/file/d/1t3Wa4kqP3B7J72hIrzhz8g_cpgX4sMfG/view?usp=sharing" target="_blank" rel="noopener">
+          <span>📄</span> resume
+        </a>
+        <a class="status-pill accent-aqua" href="https://github.com/CoffeeCat1920/doom-sway" target="_blank" rel="noopener">
+          <span>⚙️</span> doom-sway
+        </a>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="site-header">
+        <h1 class="site-title">The Linux Rice</h1>
+        <p class="site-subtitle">Keyboard-driven, lightweight, and cohesive desktop ergonomics.</p>
+      </div>
+
+      <section class="tile-window">
+        <div class="tile-header">
+          <div class="tile-title">
+            <span>📖</span> README.md &mdash; ~/dotfiles/rice-manifesto
+          </div>
+          <div class="tile-controls">
+            <span>[—]</span>
+            <span>[□]</span>
+            <span>[×]</span>
+          </div>
+        </div>
+        <div class="tile-body">
+          <div class="prompt-line">
+            <span class="p-user">wahab@arch</span><span class="p-symbol">:</span><span class="prompt-path">~/dotfiles</span><span class="p-symbol">$</span> <span class="p-cmd">glow manifesto.md</span>
+          </div>
+          <div class="prose">
+            <p>
+              I believe a desktop environment should stay completely out of your way. Every pixel has a purpose,
+              every window snaps into place predictably, and your fingers rarely leave the home row. 
+              My workstation is built on <strong>Arch Linux</strong> with <strong>Sway</strong> (Wayland), 
+              styled in the warm, eye-friendly tones of <strong>Gruvbox Dark</strong>.
+            </p>
+            <blockquote>
+              "Blazingly fast isn't just about startup benchmarks; it's about eliminating friction between a thought and its execution."
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="tile-window">
+        <div class="tile-header">
+          <div class="tile-title">
+            <span>⚙️</span> specs.conf &mdash; Environment Inventory
+          </div>
+          <div class="tile-controls">
+            <span>[—]</span>
+            <span>[□]</span>
+            <span>[×]</span>
+          </div>
+        </div>
+        <div class="tile-body">
+          <table class="rice-specs-table">
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Software / Implementation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Distribution</td>
+                <td>Arch Linux x86_64 / NixOS</td>
+              </tr>
+              <tr>
+                <td>Window Manager</td>
+                <td>Sway (Wayland compositor, i3-compatible)</td>
+              </tr>
+              <tr>
+                <td>Status Bar</td>
+                <td>Waybar with custom CSS modules &amp; workspace icons</td>
+              </tr>
+              <tr>
+                <td>Terminal Emulator</td>
+                <td>Alacritty / Foot (Gruvbox Dark palette, GPU accelerated)</td>
+              </tr>
+              <tr>
+                <td>Primary Editor</td>
+                <td>Neovim (Lua config, treesitter, lsp-zero, telescope, fugitive)</td>
+              </tr>
+              <tr>
+                <td>Application Launcher</td>
+                <td>Wofi / Rofi (Wayland mode)</td>
+              </tr>
+              <tr>
+                <td>Shell &amp; Prompt</td>
+                <td>Zsh + Starship prompt + zsh-autosuggestions</td>
+              </tr>
+              <tr>
+                <td>File Manager</td>
+                <td>Ranger (CLI) / yazi</td>
+              </tr>
+              <tr>
+                <td>Color Palette</td>
+                <td>Gruvbox Dark Hard (#1d2021 / #282828 / #ebdbb2)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div style="margin-top: 1rem;">
+            <a class="status-pill accent-aqua" href="https://github.com/CoffeeCat1920/doom-sway" target="_blank" rel="noopener" style="font-size: 0.9rem; padding: 0.4rem 0.85rem;">
+              <span>📁</span> Clone my Sway configuration on GitHub &rarr;
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="tile-window">
+        <div class="tile-header">
+          <div class="tile-title">
+            <span>⌨️</span> keybindings.map &mdash; Muscle Memory
+          </div>
+          <div class="tile-controls">
+            <span>[—]</span>
+            <span>[□]</span>
+            <span>[×]</span>
+          </div>
+        </div>
+        <div class="tile-body">
+          <div class="prompt-line">
+            <span class="p-user">wahab@arch</span><span class="p-symbol">:</span><span class="prompt-path">~/dotfiles</span><span class="p-symbol">$</span> <span class="p-cmd">cat ~/.config/sway/cheatsheet.txt</span>
+          </div>
+          <div class="keybind-grid">
+            <div class="keybind-item">
+              <span class="key-combo">$mod + Return</span>
+              <span class="key-desc">Spawn Terminal</span>
+            </div>
+            <div class="keybind-item">
+              <span class="key-combo">$mod + Space</span>
+              <span class="key-desc">App Launcher (Rofi)</span>
+            </div>
+            <div class="keybind-item">
+              <span class="key-combo">$mod + h/j/k/l</span>
+              <span class="key-desc">Focus Tile (Vim keys)</span>
+            </div>
+            <div class="keybind-item">
+              <span class="key-combo">$mod + Shift + q</span>
+              <span class="key-desc">Close Active Window</span>
+            </div>
+            <div class="keybind-item">
+              <span class="key-combo">$mod + [1-9]</span>
+              <span class="key-desc">Switch Workspace</span>
+            </div>
+            <div class="keybind-item">
+              <span class="key-combo">$mod + e</span>
+              <span class="key-desc">Toggle Split Layout</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Wahab Ahmad &bull; Hosted on GitHub Pages &bull;
+        <a href="https://github.com/CoffeeCat1920" target="_blank" rel="noopener">github.com/CoffeeCat1920</a>
+      </p>
+    </footer>
+  </body>
+</html>

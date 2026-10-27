@@ -3,57 +3,174 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio — Wahab Ahmad</title>
+    <meta name="description" content="Projects and creations by Wahab Ahmad">
+    <title>~/portfolio · Wahab Ahmad</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300..700;1,300..700&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
   </head>
 
   <body>
-    <div id="links">
-      <a class="back-button" href="./index.html">&larr; Back</a>
-    </div>
-
-    <h1>All the stuff I've made</h1>
-
-    <div class="card-container">
-      <div class="card">
-        <h3 class="card-name">Recipedia</h3>
-        <a class="card-link" href="https://github.com/CoffeeCat1920/Recipedia">github</a>
+    <header class="waybar">
+      <div class="waybar-left">
+        <nav class="workspaces" aria-label="Workspaces">
+          <a class="workspace-btn" href="./index.html">[1: home]</a>
+          <a class="workspace-btn active" href="./portfolio.html">[2: projects]</a>
+          <a class="workspace-btn" href="./rice.html">[3: rice]</a>
+          <a class="workspace-btn" href="./blog.html">[4: blog]</a>
+        </nav>
       </div>
 
-      <div class="card">
-        <h3 class="card-name">Doom Sway</h3>
-        <a class="card-link" href="https://github.com/CoffeeCat1920/doom-sway">github</a>
+      <div class="waybar-center">
+        <div class="window-title">
+          <span class="prompt-user">wahab</span><span class="prompt-at">@</span><span class="prompt-host">arch</span>:<span class="prompt-path">~/portfolio</span>
+        </div>
       </div>
 
-      <div class="card">
-        <h3 class="card-name">nix-os ~ setup</h3>
-        <a class="card-link" href="https://github.com/CoffeeCat1920/nix-os">github</a>
+      <div class="waybar-right">
+        <a class="status-pill accent-orange" href="https://drive.google.com/file/d/1t3Wa4kqP3B7J72hIrzhz8g_cpgX4sMfG/view?usp=sharing" target="_blank" rel="noopener">
+          <span>📄</span> resume
+        </a>
+        <a class="status-pill accent-aqua" href="https://github.com/CoffeeCat1920" target="_blank" rel="noopener">
+          <span>🐙</span> github
+        </a>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="site-header">
+        <h1 class="site-title">Projects & Creations</h1>
+        <p class="site-subtitle">A collection of open source tools, configurations, experiments, and applications.</p>
       </div>
 
-      <div class="card">
-        <h3 class="card-name">Collision Detection Demo</h3>
-        <a class="card-link" href="https://github.com/CoffeeCat1920/CollisionDetectionTest">github</a>
-      </div>
+      <section class="tile-window">
+        <div class="tile-header">
+          <div class="tile-title">
+            <span>📦</span> ls -la ~/projects
+          </div>
+          <div class="tile-controls">
+            <span>[—]</span>
+            <span>[□]</span>
+            <span>[×]</span>
+          </div>
+        </div>
+        <div class="tile-body">
+          <div class="prompt-line">
+            <span class="p-user">wahab@arch</span><span class="p-symbol">:</span><span class="prompt-path">~/portfolio</span><span class="p-symbol">$</span> <span class="p-cmd">gh repo list CoffeeCat1920 --limit 10</span>
+          </div>
 
-      <div class="card">
-        <h3 class="card-name">Library Management Project</h3>
-        <a class="card-link" href="https://github.com/CoffeeCat1920/Campus_Management">github</a>
-      </div>
+          <div class="tiles-grid">
+            <div class="project-card">
+              <div>
+                <h3>Doom Sway</h3>
+                <div class="tag-list">
+                  <span class="tag tech-sway">Wayland</span>
+                  <span class="tag tech-linux">Sway</span>
+                  <span class="tag tech-linux">Bash</span>
+                  <span class="tag tech-linux">Ricing</span>
+                </div>
+                <p>
+                  A keyboard-driven Sway desktop configuration inspired by Doom Emacs. Features cohesive keybindings, Waybar styling, rofi/wofi app runners, and a distraction-free Gruvbox color scheme.
+                </p>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/CoffeeCat1920/doom-sway" target="_blank" rel="noopener">
+                  <span>github</span> &rarr;
+                </a>
+                <a href="./rice.html" style="color: var(--yellow);">
+                  <span>view rice specs</span> &rarr;
+                </a>
+              </div>
+            </div>
 
-      <div class="card">
-        <h3 class="card-name">Scale Your Path</h3>
-        <a class="card-link" href="https://github.com/CoffeeCat1920/ScaleYourPath">github</a>
-      </div>
-    </div>
+            <div class="project-card">
+              <div>
+                <h3>Recipedia</h3>
+                <div class="tag-list">
+                  <span class="tag tech-web">Web App</span>
+                  <span class="tag tech-web">JavaScript</span>
+                  <span class="tag tech-web">API</span>
+                </div>
+                <p>
+                  An interactive recipe and culinary companion web application. Search recipes, organize meal ideas, and parse ingredients with a clean, responsive user interface.
+                </p>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/CoffeeCat1920/Recipedia" target="_blank" rel="noopener">
+                  <span>github</span> &rarr;
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div>
+                <h3>nix-os ~ setup</h3>
+                <div class="tag-list">
+                  <span class="tag tech-nix">Nix</span>
+                  <span class="tag tech-linux">NixOS</span>
+                  <span class="tag tech-linux">Flakes</span>
+                  <span class="tag tech-linux">Home-Manager</span>
+                </div>
+                <p>
+                  Declarative, reproducible workstation configuration for NixOS. Manages system packages, hardware drivers, dotfiles, and development environments through flakes and home-manager.
+                </p>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/CoffeeCat1920/nix-os" target="_blank" rel="noopener">
+                  <span>github</span> &rarr;
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div>
+                <h3>Collision Detection Demo</h3>
+                <div class="tag-list">
+                  <span class="tag tech-c">Physics</span>
+                  <span class="tag tech-c">Math</span>
+                  <span class="tag tech-web">Interactive</span>
+                </div>
+                <p>
+                  A 2D collision detection and bounding physics simulation. Demonstrates axis-aligned bounding boxes (AABB), circle intersection algorithms, and real-time collision response.
+                </p>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/CoffeeCat1920/CollisionDetectionTest" target="_blank" rel="noopener">
+                  <span>github</span> &rarr;
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div>
+                <h3>Campus & Library Management</h3>
+                <div class="tag-list">
+                  <span class="tag tech-c">C++</span>
+                  <span class="tag tech-c">OOP</span>
+                  <span class="tag tech-linux">Data Structures</span>
+                </div>
+                <p>
+                  A robust campus management and book registry system developed in C++. Manages student accounts, book loans, fee records, and file persistence with optimized searching.
+                </p>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/CoffeeCat1920/Campus_Management" target="_blank" rel="noopener">
+                  <span>github</span> &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Wahab Ahmad &bull; Hosted on GitHub Pages &bull;
+        <a href="https://github.com/CoffeeCat1920" target="_blank" rel="noopener">github.com/CoffeeCat1920</a>
+      </p>
+    </footer>
   </body>
 </html>

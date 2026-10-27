@@ -3,29 +3,86 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 — Wahab Ahmad</title>
+    <title>404: Not Found — Wahab Ahmad</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
   </head>
 
   <body>
-    <h1>404 Error</h1>
+    <header class="waybar">
+      <div class="waybar-left">
+        <nav class="workspaces" aria-label="Workspaces">
+          <a class="workspace-btn" href="./index.html">[1: home]</a>
+          <a class="workspace-btn" href="./portfolio.html">[2: projects]</a>
+          <a class="workspace-btn" href="./rice.html">[3: rice]</a>
+          <a class="workspace-btn" href="./blog.html">[4: blog]</a>
+        </nav>
+      </div>
 
-    <p id="intro">
-      Sorry for the inconvenience, but the page is under construction. And the 404 page is very cool.
-    </p>
+      <div class="waybar-center">
+        <div class="window-title">
+          <span style="color: var(--red);">[KERNEL PANIC] 404 NOT FOUND</span>
+        </div>
+      </div>
 
-    <div id="links">
-      <a href="./index.html">&larr; Back</a>
-    </div>
+      <div class="waybar-right">
+        <a class="status-pill accent-orange" href="./index.html">
+          <span>🏠</span> return home
+        </a>
+      </div>
+    </header>
+
+    <main class="container" style="max-width: 650px; margin-top: 3rem;">
+      <section class="tile-window" style="border-color: var(--red);">
+        <div class="tile-header" style="background-color: #2b1d1d; border-color: var(--red-dim);">
+          <div class="tile-title" style="color: var(--red);">
+            <span>⚠️</span> bash: error: 404
+          </div>
+          <div class="tile-controls">
+            <span>[—]</span>
+            <span>[□]</span>
+            <span>[×]</span>
+          </div>
+        </div>
+        <div class="tile-body">
+          <div class="prompt-line">
+            <span class="p-user">wahab@arch</span><span class="p-symbol">:</span><span class="prompt-path">~</span><span class="p-symbol">$</span> <span class="p-cmd">cat /dev/location</span>
+          </div>
+          <div style="color: var(--red); font-weight: bold; margin-bottom: 1rem;">
+            bash: cd: page not found: Error 404
+          </div>
+
+          <p style="color: var(--fg2); margin-bottom: 1.5rem; font-size: 0.92rem;">
+            The requested resource could not be found or has been moved to a new workspace.
+          </p>
+
+          <div class="prompt-line">
+            <span class="p-user">wahab@arch</span><span class="p-symbol">:</span><span class="prompt-path">~</span><span class="p-symbol">$</span> <span class="p-cmd">cd ~ &amp;&amp; ls</span>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem;">
+            <a class="status-pill accent-green" href="./index.html">
+              &rarr; cd ~/index.html (Home)
+            </a>
+            <a class="status-pill accent-aqua" href="./portfolio.html">
+              &rarr; cd ~/portfolio.html (Projects)
+            </a>
+            <a class="status-pill accent-orange" href="./rice.html">
+              &rarr; cd ~/rice.html (Rice)
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Wahab Ahmad &bull;
+        <a href="./index.html">Take me back to home</a>
+      </p>
+    </footer>
   </body>
 </html>

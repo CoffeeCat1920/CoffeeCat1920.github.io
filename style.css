@@ -1,199 +1,676 @@
+/* ==========================================================================
+   Gruvbox Dark — Tiling WM Design System
+   ========================================================================== */
+
 :root {
-  --bg: #f3f0e9;        /* Warmer, slightly muted off-white for better harmony */
-  --text: #2c2c2c;      /* Deep neutral gray for good contrast */
-  --muted: #6f6a60;     /* Secondary text / subtitles */
-  --link: #d9822b;      /* Warmer amber, matching dark theme's orange tone */
-  --head: #2896a5;      /* Muted cyan, more in line with dark theme's head color */
-  --accent: #2896a5;    /* Using same accent for consistency */
-  --card-bg: #faf7f1;
-  --card-border: rgba(40, 150, 165, 0.18);
-  --shadow: rgba(0, 0, 0, 0.1);
-  --shadow-hover: rgba(0, 0, 0, 0.18);
+  /* Gruvbox Dark Palette */
+  --bg0-hard: #1d2021;
+  --bg0: #282828;
+  --bg1: #3c3836;
+  --bg2: #504945;
+  --bg3: #665c54;
+  --bg4: #7c6f64;
+
+  --fg0: #fbf1c7;
+  --fg: #ebdbb2;
+  --fg2: #d5c4a1;
+  --fg3: #bdae93;
+  --fg4: #a89984;
+
+  /* Bright Accents */
+  --red: #fb4934;
+  --green: #b8bb26;
+  --yellow: #fabd2f;
+  --blue: #83a598;
+  --purple: #d3869b;
+  --aqua: #8ec07c;
+  --orange: #fe8019;
+
+  /* Neutral Accents */
+  --red-dim: #cc241d;
+  --green-dim: #98971a;
+  --yellow-dim: #d79921;
+  --blue-dim: #458588;
+  --purple-dim: #b16286;
+  --aqua-dim: #689d6a;
+  --orange-dim: #d65d0e;
+
+  /* Semantic UI Tokens */
+  --body-bg: var(--bg0-hard);
+  --surface-bg: var(--bg0);
+  --pane-bg: var(--bg1);
+  --pane-header-bg: #32302f;
+  --border-color: var(--bg2);
+  --border-active: var(--fg4);
+  --text-primary: var(--fg);
+  --text-muted: var(--fg4);
+  --text-highlight: var(--fg0);
+  --accent: var(--yellow);
+  --link-color: var(--aqua);
+  --link-hover: var(--yellow);
+
+  /* Fonts */
+  --font-mono: "Roboto Mono", "JetBrains Mono", "Courier New", monospace;
+  --font-heading: "Roboto Mono", monospace;
+  --font-serif: "DM Serif Text", Georgia, serif;
 }
 
-/* Dark theme */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #2d2a28;       /* Slightly deeper for true contrast */
-    --text: #ececec;     /* Softer off-white, easier on the eyes */
-    --muted: #b0aaa1;
-    --link: #faa41a;     /* Warm, rich amber */
-    --head: #48b9c7;     /* Cool cyan blue */
-    --accent: #48b9c7;   /* Matching head for simplicity */
-    --card-bg: #383430;
-    --card-border: rgba(72, 185, 199, 0.25);
-    --shadow: rgba(0, 0, 0, 0.45);
-    --shadow-hover: rgba(0, 0, 0, 0.6);
-  }
-}
-
-/* global */
-* {
+/* Base reset */
+*, *::before, *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-  font-family: "Roboto Mono", monospace;
-  background-color: var(--bg);
-  color: var(--text);
-  transition: background-color 0.3s ease;
+  font-family: var(--font-mono);
+  background-color: var(--body-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  font-family: "Roboto Mono", monospace;
-  margin: 0;
-  padding: 2.5rem 1rem 3rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  background-color: var(--body-bg);
+  color: var(--text-primary);
+  padding-bottom: 2rem;
 }
 
-h1 {
-  font-family: "DM Serif Text", serif;
-  font-size: clamp(44px, 9vw, 80px);
-  font-weight: bold;
-  line-height: 1.1;
-  text-align: center;
-  color: var(--head);
-  margin: 0.25rem 0 0.5rem;
-}
-
-h2 {
-  font-size: clamp(24px, 4vw, 30px);
-  text-align: center;
-  color: var(--text);
-  margin: 1.5rem 0 0.5rem;
-}
-
-h3 {
-  color: var(--head);
-}
-
+/* Links */
 a {
-  color: var(--link);
+  color: var(--link-color);
   text-decoration: none;
-  transition: color 0.15s ease;
+  transition: color 0.15s ease, background-color 0.15s ease;
 }
 
 a:hover {
-  color: var(--head);
+  color: var(--link-hover);
+  text-decoration: underline;
 }
 
-ul {
-  list-style-type: circle;
-  color: var(--link);
-}
-
-/* navigation */
-#navbox {
+/* --------------------------------------------------------------------------
+   Waybar / Polybar Header Component
+   -------------------------------------------------------------------------- */
+.waybar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--bg0-hard);
+  border-bottom: 2px solid var(--border-color);
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem 1rem;
-  margin: 1.5rem 0 2rem;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  overflow-x: auto;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-#navbox a {
-  font-size: 1.05rem;
-  padding: 0.45rem 1.1rem;
-  border: 1px solid var(--link);
-  border-radius: 999px;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+.waybar-left, .waybar-center, .waybar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
 }
 
-#navbox a:hover {
-  background-color: var(--link);
-  border-color: var(--link);
-  color: var(--bg);
+/* Workspaces */
+.workspaces {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
 }
 
-/* hero image */
-#lahore {
-  display: block;
-  margin: 1.5rem auto 1rem;
-  width: 20%;
-  min-width: 200px;
-  max-width: 320px;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px var(--shadow);
+.workspace-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  background-color: var(--bg0);
+  color: var(--fg4);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  transition: all 0.15s ease;
 }
 
-#subtitle {
-  font-family: "Roboto Condensed", sans-serif;
-  color: var(--muted);
-  font-size: 0.9rem;
-  text-align: center;
-  font-style: italic;
-  margin: 0.5rem 0 2.5rem;
+.workspace-btn:hover {
+  background-color: var(--bg1);
+  color: var(--fg0);
+  border-color: var(--fg3);
+  text-decoration: none;
 }
 
-/* intro */
-#intro {
-  max-width: 58ch;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 18px;
-  line-height: 1.65;
-  color: var(--text);
+.workspace-btn.active {
+  background-color: var(--bg2);
+  color: var(--yellow);
+  border-color: var(--yellow);
+  font-weight: 700;
 }
 
-/* back links */
-#links {
-  align-self: flex-start;
-  margin-bottom: 1rem;
+/* Window Title in Bar */
+.window-title {
+  color: var(--fg2);
+  font-size: 0.85rem;
+  padding: 0.2rem 0.6rem;
+  background-color: var(--bg0);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  white-space: nowrap;
 }
 
-#links a,
-.back-button {
-  font-size: 1.05rem;
+.window-title .prompt-user {
+  color: var(--green);
 }
 
-footer {
-  margin-top: 3rem;
-  font-size: 0.9rem;
-  text-align: center;
-  color: var(--muted);
+.window-title .prompt-at {
+  color: var(--fg4);
 }
 
-/* portfolio cards */
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1.25rem;
-  padding: 1.5rem 0 2rem;
+.window-title .prompt-host {
+  color: var(--aqua);
+}
+
+.window-title .prompt-path {
+  color: var(--blue);
+}
+
+/* Status Modules */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  background-color: var(--bg0);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  color: var(--fg3);
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+
+.status-pill.accent-orange {
+  color: var(--orange);
+  border-color: rgba(254, 128, 25, 0.4);
+}
+
+.status-pill.accent-aqua {
+  color: var(--aqua);
+  border-color: rgba(142, 192, 124, 0.4);
+}
+
+.status-pill.accent-green {
+  color: var(--green);
+  border-color: rgba(184, 187, 38, 0.4);
+}
+
+.status-pill:hover {
+  color: var(--fg0);
+  border-color: var(--fg2);
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   Layout & Container
+   -------------------------------------------------------------------------- */
+.container {
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
+  margin: 1.5rem auto 0;
+  padding: 0 1rem;
 }
 
-.card {
-  background: var(--card-bg);
-  color: var(--text);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  padding: 1.1rem;
-  min-height: 120px;
+.site-header {
+  margin-bottom: 1.75rem;
+  text-align: left;
+}
+
+.site-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  color: var(--yellow);
+  line-height: 1.15;
+  margin-bottom: 0.35rem;
+}
+
+.site-subtitle {
+  color: var(--fg4);
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   Tiling Window Panes
+   -------------------------------------------------------------------------- */
+.tile-window {
+  background-color: var(--surface-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  margin-bottom: 1.5rem;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.tile-header {
+  background-color: var(--pane-header-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.45rem 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+}
+
+.tile-title {
+  color: var(--fg2);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tile-controls {
+  display: flex;
+  gap: 0.35rem;
+  color: var(--fg4);
+  font-size: 0.75rem;
+  user-select: none;
+}
+
+.tile-controls span {
+  display: inline-block;
+  padding: 0 2px;
+}
+
+.tile-body {
+  padding: 1.25rem;
+}
+
+/* Terminal Prompts & Code Blocks */
+.prompt-line {
+  color: var(--fg3);
+  margin-bottom: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.prompt-line .p-user { color: var(--green); }
+.prompt-line .p-symbol { color: var(--fg4); }
+.prompt-line .p-cmd { color: var(--yellow); font-weight: 600; }
+
+/* Neofetch layout */
+.neofetch-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.neofetch-art {
+  color: var(--aqua);
+  font-size: 0.8rem;
+  line-height: 1.2;
+  white-space: pre;
+  user-select: none;
+}
+
+.neofetch-info {
+  font-size: 0.9rem;
+}
+
+.neofetch-info .info-row {
+  margin-bottom: 0.35rem;
+}
+
+.neofetch-info .info-label {
+  color: var(--red);
+  font-weight: 600;
+  min-width: 100px;
+  display: inline-block;
+}
+
+.neofetch-info .info-val {
+  color: var(--fg);
+}
+
+.color-blocks {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.color-block {
+  width: 22px;
+  height: 14px;
+  border-radius: 1px;
+}
+
+/* Banner image inside terminal pane */
+.banner-wrapper {
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  background-color: #000;
+}
+
+.banner-img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  display: block;
+  opacity: 0.9;
+  filter: contrast(105%) brightness(95%);
+  transition: opacity 0.3s ease;
+}
+
+.banner-img:hover {
+  opacity: 1;
+}
+
+.banner-caption {
+  font-size: 0.78rem;
+  color: var(--fg4);
+  padding: 0.4rem 0.75rem;
+  background-color: var(--pane-header-bg);
+  border-top: 1px solid var(--border-color);
+  font-style: italic;
+}
+
+/* Grid for project cards & tiles */
+.tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.project-card {
+  background-color: var(--pane-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  padding: 1.15rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.15s ease, border-color 0.15s ease;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px var(--shadow-hover);
-  border-color: var(--head);
+.project-card:hover {
+  border-color: var(--yellow);
+  transform: translateY(-2px);
 }
 
-.card-name {
-  font-family: "Roboto Mono", monospace;
-  font-size: 1.05rem;
-  line-height: 1.3;
-  margin: 0;
-  color: var(--text);
+.project-card h3 {
+  color: var(--yellow);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
 
-.card-link {
+.project-card p {
+  color: var(--fg2);
+  font-size: 0.88rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 2px;
+  background-color: var(--bg0-hard);
+  border: 1px solid var(--border-color);
+  color: var(--fg3);
+}
+
+.tag.tech-c { color: var(--blue); border-color: rgba(131, 165, 152, 0.3); }
+.tag.tech-nix { color: var(--aqua); border-color: rgba(142, 192, 124, 0.3); }
+.tag.tech-sway { color: var(--purple); border-color: rgba(211, 134, 155, 0.3); }
+.tag.tech-web { color: var(--orange); border-color: rgba(254, 128, 25, 0.3); }
+.tag.tech-linux { color: var(--green); border-color: rgba(184, 187, 38, 0.3); }
+
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 0.75rem;
+}
+
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* --------------------------------------------------------------------------
+   Blog Styles (Old-timey / Early-web Minimalist)
+   -------------------------------------------------------------------------- */
+.blog-intro {
+  margin-bottom: 1.5rem;
   font-size: 0.95rem;
+  color: var(--fg2);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.blog-meta-note {
+  font-size: 0.8rem;
+  color: var(--fg4);
+  background-color: var(--bg0-hard);
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 0.85rem;
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+
+.post-entry {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dotted var(--border-color);
+}
+
+.post-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.post-title {
+  font-size: 1.15rem;
+  color: var(--yellow);
+  font-weight: 600;
+}
+
+.post-date {
+  font-size: 0.8rem;
+  color: var(--fg4);
+}
+
+.post-summary {
+  color: var(--fg2);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-read-more {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Full post prose */
+.prose {
+  font-size: 0.95rem;
+  color: var(--fg);
+  line-height: 1.7;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+}
+
+.prose h2, .prose h3 {
+  color: var(--yellow);
+  margin: 1.5rem 0 0.5rem;
+}
+
+.prose ul, .prose ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose li {
+  margin-bottom: 0.35rem;
+  color: var(--fg2);
+}
+
+.prose code {
+  background-color: var(--bg0-hard);
+  color: var(--orange);
+  padding: 0.15rem 0.4rem;
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  font-size: 0.88em;
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--purple);
+  padding-left: 1rem;
+  margin: 1.25rem 0;
+  color: var(--fg3);
+  font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   Rice Showcase Specs & Details
+   -------------------------------------------------------------------------- */
+.rice-specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-bottom: 1.5rem;
+}
+
+.rice-specs-table th, .rice-specs-table td {
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+  border: 1px solid var(--border-color);
+}
+
+.rice-specs-table th {
+  background-color: var(--pane-header-bg);
+  color: var(--yellow);
+}
+
+.rice-specs-table td:first-child {
+  color: var(--aqua);
+  font-weight: 600;
+  width: 30%;
+}
+
+.rice-specs-table td:last-child {
+  color: var(--fg2);
+}
+
+.keybind-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.keybind-item {
+  background-color: var(--bg0-hard);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 0.75rem;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+}
+
+.key-combo {
+  background-color: var(--bg1);
+  color: var(--orange);
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  font-weight: 600;
+}
+
+.key-desc {
+  color: var(--fg3);
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  margin-top: auto;
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--fg4);
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-footer a {
+  color: var(--fg3);
+}
+
+.site-footer a:hover {
+  color: var(--yellow);
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Responsiveness
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .waybar {
+    flex-wrap: wrap;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .waybar-center {
+    display: none;
+  }
+
+  .neofetch-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .neofetch-art {
+    display: none;
+  }
+
+  .tiles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-title {
+    font-size: 2rem;
+  }
 }

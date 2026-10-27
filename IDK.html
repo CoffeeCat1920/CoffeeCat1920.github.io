@@ -2,28 +2,64 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="2; url=./blog.html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IDK — Wahab Ahmad</title>
+    <title>Redirecting · Wahab Ahmad</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
   </head>
 
   <body>
-    <h1>Yeah like really. IDK</h1>
+    <header class="waybar">
+      <div class="waybar-left">
+        <nav class="workspaces" aria-label="Workspaces">
+          <a class="workspace-btn" href="./index.html">[1: home]</a>
+          <a class="workspace-btn" href="./portfolio.html">[2: projects]</a>
+          <a class="workspace-btn" href="./rice.html">[3: rice]</a>
+          <a class="workspace-btn" href="./blog.html">[4: blog]</a>
+        </nav>
+      </div>
 
-    <p id="intro">Why you here. Go back</p>
+      <div class="waybar-center">
+        <div class="window-title">
+          <span class="prompt-user">wahab</span><span class="prompt-at">@</span><span class="prompt-host">arch</span>:<span class="prompt-path">~/redirect</span>
+        </div>
+      </div>
 
-    <div id="links">
-      <a href="./index.html">&larr; Back</a>
-    </div>
+      <div class="waybar-right">
+        <a class="status-pill accent-orange" href="./blog.html">
+          <span>&rarr;</span> forward
+        </a>
+      </div>
+    </header>
+
+    <main class="container" style="max-width: 600px; margin-top: 3rem;">
+      <section class="tile-window">
+        <div class="tile-header">
+          <div class="tile-title">
+            <span>🔄</span> mv IDK.html ~/blog.html
+          </div>
+          <div class="tile-controls">
+            <span>[—]</span>
+            <span>[□]</span>
+            <span>[×]</span>
+          </div>
+        </div>
+        <div class="tile-body">
+          <div class="prompt-line">
+            <span class="p-user">wahab@arch</span><span class="p-symbol">:</span><span class="prompt-path">~</span><span class="p-symbol">$</span> <span class="p-cmd">echo "Now we know what to put here!"</span>
+          </div>
+          <p style="color: var(--fg2); margin-bottom: 1.25rem;">
+            IDK has been replaced by the new <a href="./blog.html" style="color: var(--yellow);">Blog &amp; Writings page</a> and the <a href="./rice.html" style="color: var(--aqua);">Rice Showcase</a>.
+          </p>
+          <p style="font-size: 0.85rem; color: var(--fg4);">
+            Redirecting you automatically to <a href="./blog.html">~/blog</a> in 2 seconds...
+          </p>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

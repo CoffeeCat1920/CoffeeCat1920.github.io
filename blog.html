@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wahab Ahmad's blog — reflections on Linux, Neovim, and early-web computing.">
+    <title>~/blog · Wahab Ahmad</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300..700;1,300..700&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+    <header class="waybar">
+      <div class="waybar-left">
+        <nav class="workspaces" aria-label="Workspaces">
+          <a class="workspace-btn" href="./index.html">[1: home]</a>
+          <a class="workspace-btn" href="./portfolio.html">[2: projects]</a>
+          <a class="workspace-btn" href="./rice.html">[3: rice]</a>
+          <a class="workspace-btn active" href="./blog.html">[4: blog]</a>
+        </nav>
+      </div>
+
+      <div class="waybar-center">
+        <div class="window-title">
+          <span class="prompt-user">wahab</span><span class="prompt-at">@</span><span class="prompt-host">arch</span>:<span class="prompt-path">~/blog</span>
+        </div>
+      </div>
+
+      <div class="waybar-right">
+        <a class="status-pill accent-orange" href="https://drive.google.com/file/d/1t3Wa4kqP3B7J72hIrzhz8g_cpgX4sMfG/view?usp=sharing" target="_blank" rel="noopener">
+          <span>📄</span> resume
+        </a>
+        <a class="status-pill accent-aqua" href="https://github.com/CoffeeCat1920" target="_blank" rel="noopener">
+          <span>🐙</span> github
+        </a>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="site-header">
+        <h1 class="site-title">Writings &amp; Notes</h1>
+        <p class="site-subtitle">An old-timey, text-first corner of the web. No tracking, no JavaScript bloat, just plain words.</p>
+      </div>
+
+      <div class="blog-meta-note">
+        <span>📡 Feed Notice:</span> Written in lightweight HTML. Hand-crafted, keyboard-friendly, and designed to look sharp on any display.
+      </div>
+
+      <article class="tile-window">
+        <div class="tile-header">
+          <div class="tile-title">
+            <span>📝</span> post-01.txt &mdash; Why I Switched to Sway and Tiling WMs
+          </div>
+          <div class="tile-controls">
+            <span>2026-10-15</span>
+          </div>
+        </div>
+        <div class="tile-body">
+          <div class="prose">
+            <h2 style="margin-top: 0;">Why I Switched to Sway and Tiling Window Managers</h2>
+            <p style="color: var(--fg4); font-size: 0.82rem; margin-bottom: 1.25rem;">
+              Published on October 15, 2026 &bull; Category: <code>Linux / Wayland</code> &bull; 4 min read
+            </p>
+
+            <p>
+              Like almost everyone starting their journey on desktop Linux, I initially floated between GNOME, KDE Plasma, and XFCE. 
+              They were comfortable, familiar, and closely resembled the floating-window paradigms we've inherited from 90s desktop operating systems.
+            </p>
+
+            <p>
+              Then one day, I tried a tiling window manager on Arch Linux. Initially, it felt disorienting. Where was the dock? Where was the start menu?
+              Why did I have to press <code>$mod + Enter</code> just to see a terminal?
+            </p>
+
+            <h3>1. Zero Window Management Overhead</h3>
+            <p>
+              In traditional floating desktop environments, you spend a non-trivial amount of mental energy resizing windows, dragging titlebars around, and minimizing windows just to peek at a terminal behind your browser.
+            </p>
+            <p>
+              With Sway (a drop-in Wayland replacement for i3), the window manager does the layout work for you. Open two windows? They cleanly divide your screen 50/50. Open a third? It neatly tiles into the split. Once you configure your workspaces, your entire system flows seamlessly:
+            </p>
+            <ul>
+              <li><strong>Workspace 1:</strong> Web browser & research</li>
+              <li><strong>Workspace 2:</strong> Code editor (Neovim)</li>
+              <li><strong>Workspace 3:</strong> Terminal multiplexer / background compilers</li>
+              <li><strong>Workspace 4:</strong> Chat & references</li>
+            </ul>
+
+            <h3>2. Embracing Wayland with Sway</h3>
+            <p>
+              Sway brings modern Wayland perks without the historic tearing and display synchronization bugs of X11. Smooth fractional scaling, native multi-monitor refresh rates, and lightweight resource usage make it effortless to run on everything from low-power laptops to desktop rigs.
+            </p>
+
+            <h3>3. The Joy of Ricing</h3>
+            <p>
+              Tiling window managers allow you to create an environment that feels truly your own. 
+              Pairing Sway with <strong>Gruvbox Dark</strong> and a tuned <strong>Waybar</strong> isn't just about eye candy—it turns using your computer into an enjoyable, cohesive ritual.
+            </p>
+
+            <blockquote style="margin-top: 1.5rem;">
+              "Once you train your hands to stay on the home row, reaching for a mouse feels like taking a detour."
+            </blockquote>
+          </div>
+        </div>
+      </article>
+
+      <article class="tile-window">
+        <div class="tile-header">
+          <div class="tile-title">
+            <span>📝</span> post-02.txt &mdash; My Neovim Setup: Fast, Lean, and Zero Bloat
+          </div>
+          <div class="tile-controls">
+            <span>2026-09-28</span>
+          </div>
+        </div>
+        <div class="tile-body">
+          <div class="prose">
+            <h2 style="margin-top: 0;">My Neovim Setup: Fast, Lean, and Zero Bloat</h2>
+            <p style="color: var(--fg4); font-size: 0.82rem; margin-bottom: 1.25rem;">
+              Published on September 28, 2026 &bull; Category: <code>Neovim / Lua</code> &bull; 3 min read
+            </p>
+
+            <p>
+              A lot of modern IDE setups boot with 500ms+ latency and consume gigabytes of RAM before you've even typed a single character. 
+              Switching to pure Neovim configured with Lua was the single greatest productivity boost in my developer tooling.
+            </p>
+
+            <p>
+              The secret isn't installing 100 random plugins; it's selecting a curated core that covers 95% of what you need:
+            </p>
+            <ul>
+              <li><code>lazy.nvim</code> for fast, async plugin loading</li>
+              <li><code>nvim-treesitter</code> for syntax trees and syntax-aware highlighting</li>
+              <li><code>telescope.nvim</code> for fuzzy searching files and symbols in milliseconds</li>
+              <li><code>nvim-lspconfig</code> with native LSP and autocompletion</li>
+              <li><code>gruvbox.nvim</code> for consistent, soothing terminal colors</li>
+            </ul>
+
+            <p>
+              The result? A cold boot time under <strong>15ms</strong> and a distraction-free writing environment that never lags.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <section class="tile-window">
+        <div class="tile-header">
+          <div class="tile-title">
+            <span>📫</span> guestbook.txt &mdash; Say Hello
+          </div>
+          <div class="tile-controls">
+            <span>[—]</span>
+            <span>[□]</span>
+            <span>[×]</span>
+          </div>
+        </div>
+        <div class="tile-body">
+          <p style="color: var(--fg2); font-size: 0.9rem;">
+            Want to discuss Linux ricing, Neovim configs, or collaborate on a project? 
+            Reach out via <a href="https://github.com/CoffeeCat1920" target="_blank" rel="noopener">GitHub</a> or check out my repositories.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Wahab Ahmad &bull; Hosted on GitHub Pages &bull;
+        <a href="https://github.com/CoffeeCat1920" target="_blank" rel="noopener">github.com/CoffeeCat1920</a>
+      </p>
+    </footer>
+  </body>
+</html>
