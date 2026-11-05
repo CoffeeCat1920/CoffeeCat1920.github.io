@@ -1,0 +1,52 @@
+<h1>Hi</h1>
+<h2>How Are You</h2>
+<h3>Yes Specifically you</h3>
+<p>This is a paragraph test.</p>
+<pre><code class="language-cpp">#include &quot;md4c-html.h&quot;
+#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+#include &lt;string&gt;
+
+static void process_output(const MD_CHAR *text, MD_SIZE size, void *userdata) {
+  auto *out = static_cast&lt;std::string *&gt;(userdata);
+  out-&gt;append(text, size);
+}
+
+int main() {
+
+  std::string md_file_path = &quot;index.md&quot;;
+  std::string html_file_path = &quot;index.html&quot;;
+
+  std::ifstream md_file(md_file_path);
+  if (!md_file.is_open()) {
+    std::cerr &lt;&lt; &quot;Failed to open file &quot; &lt;&lt; md_file_path &lt;&lt; std::endl;
+    return 1;
+  }
+  std::stringstream buffer;
+  buffer &lt;&lt; md_file.rdbuf();
+
+  std::string markdown = buffer.str();
+  std::string html;
+  int err =
+      md_html(markdown.c_str(), static_cast&lt;MD_SIZE&gt;(markdown.size()),
+              process_output, &amp;html, MD_DIALECT_GITHUB, MD_HTML_FLAG_DEBUG);
+
+  if (err != 0) {
+    std::cerr &lt;&lt; &quot;Failed to parse markdown.&quot; &lt;&lt; std::endl;
+    return 1;
+  }
+
+  std::ofstream html_file(html_file_path);
+  if (!html_file.is_open()) {
+    std::cerr &lt;&lt; &quot;Failed to open html.&quot; &lt;&lt; html_file_path &lt;&lt; std::endl;
+    return 1;
+  }
+  html_file &lt;&lt; html;
+
+  std::cout &lt;&lt; &quot;Original Markdown:\n&quot; &lt;&lt; markdown &lt;&lt; &quot;\n\n&quot;;
+  std::cout &lt;&lt; &quot;Rendered HTML:\n&quot; &lt;&lt; html &lt;&lt; std::endl;
+
+  return 0;
+}
+</code></pre>
