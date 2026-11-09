@@ -4,10 +4,13 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
+#include <map>
 #include <sstream>
 #include <string>
 
 namespace fs = std::filesystem;
+
+std::map<std::string, std::string> template_map{};
 
 fs::path toDistPath(const fs::path &file, const std::string &ext = "") {
   fs::path out = "dist" / fs::relative(file, "content");
@@ -40,6 +43,20 @@ void generate_md(const fs::path &file_path) {
 
 void generator::Generate(const fs::path &content_dir,
                          const fs::path &dist_dir) {
+
+  if (content_dir.filename() == "_template") {
+    LOG("Found the _template dir");
+    for (const auto &entry : fs::directory_iterator(content_dir)) {
+      std::string ext = entry.path().extension();
+      if (ext == ".md") {
+        generate_md(entry.path());
+        std::string html_path = toDistPath(entry.path(), "html");
+        std::string html_file = open_file(html_path);
+        template_map[entry.path().filename()] = html_file;
+      }
+    }
+    return;
+  }
 
   LOG("Generating site from: {}", content_dir.string());
 
