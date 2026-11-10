@@ -101,6 +101,10 @@ static void process_output(const MD_CHAR *text, MD_SIZE size, void *userdata) {
 std::string md_to_html::Convert(std::string md) {
   std::map<std::string, std::string> vars_map;
   std::string processed_md = preprocessor(md, vars_map);
+  for (const auto &[a, b] : vars_map) {
+    LOG("Key: {}", a);
+    LOG("VAL: {}", b);
+  }
   std::string html;
   int err =
       md_html(processed_md.c_str(), static_cast<MD_SIZE>(processed_md.size()),
