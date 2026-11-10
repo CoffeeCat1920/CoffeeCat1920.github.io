@@ -1,6 +1,7 @@
 #include "generator.hpp"
 #include "logger/logger.hpp"
 #include "md/md.hpp"
+#include "template_map/template_map.hpp"
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -9,8 +10,6 @@
 #include <string>
 
 namespace fs = std::filesystem;
-
-std::map<std::string, std::string> template_map{};
 
 fs::path toDistPath(const fs::path &file, const std::string &ext = "") {
   fs::path out = "dist" / fs::relative(file, "content");
@@ -41,20 +40,9 @@ void generate_md(const fs::path &file_path) {
   html_file << html_content;
 }
 
-void generator::Generate(const fs::path &content_dir,
-                         const fs::path &dist_dir) {
+void GenerateHelper(const fs::path &content_dir, const fs::path &dist_dir) {
 
   if (content_dir.filename() == "_template") {
-    LOG("Found the _template dir");
-    for (const auto &entry : fs::directory_iterator(content_dir)) {
-      std::string ext = entry.path().extension();
-      if (ext == ".md") {
-        generate_md(entry.path());
-        std::string html_path = toDistPath(entry.path(), "html");
-        std::string html_file = open_file(html_path);
-        template_map[entry.path().filename()] = html_file;
-      }
-    }
     return;
   }
 
@@ -67,7 +55,7 @@ void generator::Generate(const fs::path &content_dir,
 
   for (const auto &entry : fs::directory_iterator(content_dir)) {
     if (entry.is_directory()) {
-      Generate(entry.path(), dist_dir);
+      GenerateHelper(entry.path(), dist_dir);
     }
     if (entry.is_regular_file()) {
       std::string ext = entry.path().extension();
@@ -75,4 +63,23 @@ void generator::Generate(const fs::path &content_dir,
         generate_md(entry.path());
     }
   }
+}
+
+void generator::Generate(const fs::path &content_dir,
+                         const fs::path &dist_dir) {
+  if (fs::is_directory(content_dir / "_template")) {
+    LOG("Found the _template dir");
+    std::map<std::string, std::string> &template_map = get_template_map();
+    for (const auto &entry :
+         fs::directory_iterator(content_dir / "_template")) {
+      std::string ext = entry.path().extension();
+      if (ext == ".md" || ext == ".html") {
+        generate_md(entry.path());
+        std::string html_path = toDistPath(entry.path(), "html");
+        std::string html_file = open_file(html_path);
+        template_map[entry.path().filename()] = html_file;
+      }
+    }
+  }
+  GenerateHelper(content_dir, dist_dir);
 }

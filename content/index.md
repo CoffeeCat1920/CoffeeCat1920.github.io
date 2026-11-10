@@ -7,4 +7,5 @@ int main() {
 }
 ```
 
-@yt: QNYT9wVwQ8A
+@youtube(QNYT9wVwQ8A)
+@include(test.html)

@@ -1,5 +1,6 @@
 #include "md.hpp"
 #include "logger/logger.hpp"
+#include "template_map/template_map.hpp"
 #include <map>
 #include <md4c-html.h>
 #include <md4c.h>
@@ -8,7 +9,7 @@
 #include <string>
 
 std::map<std::string, std::string> plt_map{
-    {"yt",
+    {"youtube",
      R"(<iframe
         width="560"
         height="315"
@@ -16,8 +17,23 @@ std::map<std::string, std::string> plt_map{
     </iframe>)"},
 };
 
+std::string expand_temp(const std::string &line) {
+  std::map<std::string, std::string> &template_maps = get_template_map();
+  const std::regex tag(R"re(@include\(\s*([^)]*?)\s*\))re");
+
+  std::smatch match;
+  std::string template_str;
+
+  if (std::regex_search(line, match, tag)) {
+    std::string name = match[1];
+    LOG("FOUND A TEMPLATE: {}", name);
+    template_str = template_maps[match[1]];
+  }
+  return template_str;
+}
+
 std::string expand_links(const std::string &line) {
-  const std::regex tag(R"(@(\w+):\s*(.+))");
+  const std::regex tag(R"re(@([A-Za-z][\w-]*)\(\s*([^)]*?)\s*\))re");
 
   std::smatch match;
   std::string link;
@@ -38,6 +54,7 @@ std::string preprocessor(const std::string &md) {
   std::string line;
 
   while (std::getline(stream, line)) {
+    processed.append(expand_temp(line));
     processed.append(expand_links(line));
     processed.push_back('\n');
   }
