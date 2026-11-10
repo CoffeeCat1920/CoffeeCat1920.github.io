@@ -7,6 +7,7 @@
 #include <regex>
 #include <sstream>
 #include <string>
+#include <utility>
 
 std::map<std::string, std::string> plt_map{
     {"youtube",
@@ -48,12 +49,42 @@ std::string expand_links(const std::string &line) {
   return line;
 }
 
-std::string preprocessor(const std::string &md) {
+std::pair<std::string, std::string> exteract_vars(const std::string line) {
+
+  static const std::regex tag(R"(^\+(\w[\w-]*)\s*:\s*(.*?)\s*$)");
+
+  std::smatch match;
+  std::string var_line;
+
+  std::regex_search(line, match, tag);
+  std::string key = match[1].str();
+  std::string val = match[2].str();
+
+  return std::pair<std::string, std::string>{key, val};
+}
+
+std::string preprocessor(const std::string &md,
+                         std::map<std::string, std::string> &vars_map) {
+
   std::istringstream stream(md);
   std::string processed;
   std::string line;
 
+  bool skip = false;
+
   while (std::getline(stream, line)) {
+
+    if (line == "---") {
+      skip = !skip;
+      continue;
+    }
+
+    if (skip) {
+      std::pair<std::string, std::string> var = exteract_vars(line);
+      vars_map[var.first] = var.second;
+      continue;
+    }
+
     processed.append(expand_temp(line));
     processed.append(expand_links(line));
     processed.push_back('\n');
@@ -68,7 +99,8 @@ static void process_output(const MD_CHAR *text, MD_SIZE size, void *userdata) {
 }
 
 std::string md_to_html::Convert(std::string md) {
-  std::string processed_md = preprocessor(md);
+  std::map<std::string, std::string> vars_map;
+  std::string processed_md = preprocessor(md, vars_map);
   std::string html;
   int err =
       md_html(processed_md.c_str(), static_cast<MD_SIZE>(processed_md.size()),
