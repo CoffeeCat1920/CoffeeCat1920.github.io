@@ -1,32 +1,38 @@
 [
 {
-  "directory": "/home/ok/Better_Code/webSite/build",
-  "command": "/usr/sbin/c++  -I/home/ok/Better_Code/webSite/include -I/home/ok/Better_Code/webSite/src -std=c++20 -o CMakeFiles/ssg.dir/main.cpp.o -c /home/ok/Better_Code/webSite/main.cpp",
-  "file": "/home/ok/Better_Code/webSite/main.cpp",
+  "directory": "/home/ok/Better_Code/CoffeeCat1920.github.io/build",
+  "command": "/usr/sbin/c++  -I/home/ok/Better_Code/CoffeeCat1920.github.io/include -I/home/ok/Better_Code/CoffeeCat1920.github.io/src -std=c++20 -o CMakeFiles/ssg.dir/main.cpp.o -c /home/ok/Better_Code/CoffeeCat1920.github.io/main.cpp",
+  "file": "/home/ok/Better_Code/CoffeeCat1920.github.io/main.cpp",
   "output": "CMakeFiles/ssg.dir/main.cpp.o"
 },
 {
-  "directory": "/home/ok/Better_Code/webSite/build",
-  "command": "/usr/sbin/c++  -I/home/ok/Better_Code/webSite/include -I/home/ok/Better_Code/webSite/src -std=c++20 -o CMakeFiles/ssg.dir/src/generator/generator.cpp.o -c /home/ok/Better_Code/webSite/src/generator/generator.cpp",
-  "file": "/home/ok/Better_Code/webSite/src/generator/generator.cpp",
+  "directory": "/home/ok/Better_Code/CoffeeCat1920.github.io/build",
+  "command": "/usr/sbin/c++  -I/home/ok/Better_Code/CoffeeCat1920.github.io/include -I/home/ok/Better_Code/CoffeeCat1920.github.io/src -std=c++20 -o CMakeFiles/ssg.dir/src/common/common.cpp.o -c /home/ok/Better_Code/CoffeeCat1920.github.io/src/common/common.cpp",
+  "file": "/home/ok/Better_Code/CoffeeCat1920.github.io/src/common/common.cpp",
+  "output": "CMakeFiles/ssg.dir/src/common/common.cpp.o"
+},
+{
+  "directory": "/home/ok/Better_Code/CoffeeCat1920.github.io/build",
+  "command": "/usr/sbin/c++  -I/home/ok/Better_Code/CoffeeCat1920.github.io/include -I/home/ok/Better_Code/CoffeeCat1920.github.io/src -std=c++20 -o CMakeFiles/ssg.dir/src/generator/generator.cpp.o -c /home/ok/Better_Code/CoffeeCat1920.github.io/src/generator/generator.cpp",
+  "file": "/home/ok/Better_Code/CoffeeCat1920.github.io/src/generator/generator.cpp",
   "output": "CMakeFiles/ssg.dir/src/generator/generator.cpp.o"
 },
 {
-  "directory": "/home/ok/Better_Code/webSite/build",
-  "command": "/usr/sbin/c++  -I/home/ok/Better_Code/webSite/include -I/home/ok/Better_Code/webSite/src -std=c++20 -o CMakeFiles/ssg.dir/src/logger/logger.cpp.o -c /home/ok/Better_Code/webSite/src/logger/logger.cpp",
-  "file": "/home/ok/Better_Code/webSite/src/logger/logger.cpp",
+  "directory": "/home/ok/Better_Code/CoffeeCat1920.github.io/build",
+  "command": "/usr/sbin/c++  -I/home/ok/Better_Code/CoffeeCat1920.github.io/include -I/home/ok/Better_Code/CoffeeCat1920.github.io/src -std=c++20 -o CMakeFiles/ssg.dir/src/logger/logger.cpp.o -c /home/ok/Better_Code/CoffeeCat1920.github.io/src/logger/logger.cpp",
+  "file": "/home/ok/Better_Code/CoffeeCat1920.github.io/src/logger/logger.cpp",
   "output": "CMakeFiles/ssg.dir/src/logger/logger.cpp.o"
 },
 {
-  "directory": "/home/ok/Better_Code/webSite/build",
-  "command": "/usr/sbin/c++  -I/home/ok/Better_Code/webSite/include -I/home/ok/Better_Code/webSite/src -std=c++20 -o CMakeFiles/ssg.dir/src/md/md.cpp.o -c /home/ok/Better_Code/webSite/src/md/md.cpp",
-  "file": "/home/ok/Better_Code/webSite/src/md/md.cpp",
+  "directory": "/home/ok/Better_Code/CoffeeCat1920.github.io/build",
+  "command": "/usr/sbin/c++  -I/home/ok/Better_Code/CoffeeCat1920.github.io/include -I/home/ok/Better_Code/CoffeeCat1920.github.io/src -std=c++20 -o CMakeFiles/ssg.dir/src/md/md.cpp.o -c /home/ok/Better_Code/CoffeeCat1920.github.io/src/md/md.cpp",
+  "file": "/home/ok/Better_Code/CoffeeCat1920.github.io/src/md/md.cpp",
   "output": "CMakeFiles/ssg.dir/src/md/md.cpp.o"
 },
 {
-  "directory": "/home/ok/Better_Code/webSite/build",
-  "command": "/usr/sbin/c++  -I/home/ok/Better_Code/webSite/include -I/home/ok/Better_Code/webSite/src -std=c++20 -o CMakeFiles/ssg.dir/src/template_map/template_map.cpp.o -c /home/ok/Better_Code/webSite/src/template_map/template_map.cpp",
-  "file": "/home/ok/Better_Code/webSite/src/template_map/template_map.cpp",
+  "directory": "/home/ok/Better_Code/CoffeeCat1920.github.io/build",
+  "command": "/usr/sbin/c++  -I/home/ok/Better_Code/CoffeeCat1920.github.io/include -I/home/ok/Better_Code/CoffeeCat1920.github.io/src -std=c++20 -o CMakeFiles/ssg.dir/src/template_map/template_map.cpp.o -c /home/ok/Better_Code/CoffeeCat1920.github.io/src/template_map/template_map.cpp",
+  "file": "/home/ok/Better_Code/CoffeeCat1920.github.io/src/template_map/template_map.cpp",
   "output": "CMakeFiles/ssg.dir/src/template_map/template_map.cpp.o"
 }
 ]

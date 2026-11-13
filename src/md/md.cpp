@@ -9,7 +9,7 @@
 #include <string>
 #include <utility>
 
-std::map<std::string, std::string> plt_map{
+static const std::map<std::string, std::string> plt_map{
     {"youtube",
      R"(<iframe
         width="560"
